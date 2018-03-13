@@ -54,11 +54,12 @@ def getbodyfromemail(msg):
 
 
 mboxfile = 'b21.mbox'
-print(mboxfile)
 i = 0
 for message in mailbox.mbox(mboxfile):
 	f = open("%i.rtf" % (i), "w")
 	body = getbodyfromemail(message)
-	f.write(body.encode('utf8'))
+	date = message['Received']
+	text = body.encode('utf8') + "\n" + date[date.index('\n')+9:].encode('utf8')
+	f.write(text)
 	f.close()
 	i += 1
