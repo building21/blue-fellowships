@@ -1,1 +1,6 @@
 .DS_Store
+apps/
+b21.mbox
+apps.csv
+apps_b.csv
+newapps/
